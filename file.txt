@@ -1,0 +1,29 @@
+私の最終課題の追加の機能：
+スクロールバー：
+先生の授業の中の内容を運用します。
+textPad = st.ScrolledText(root,undo=True)
+textPad.pack(expand=True, fill='both')
+すべて選択：
+tag_add('sel','1.0','end')
+その中の「sel」は選択の範囲の意味です。
+undo/redo：
+def undo():
+    global textPad
+    textPad.event_generate('<<Undo>>')
+def redo():
+    global textPad
+    textPad.event_generate('<<Redo>>')
+貼り付け：
+def paste():
+    global textPad
+    textPad.event_generate('<<Paste>>')
+コピー：
+def copy():
+    global textPad
+    textPad.event_generate('<<Copy>>')
+切り取り：
+def cut():
+    global textPad
+    textPad.event_generate('<<Cut>>')
+以上の機能は全部「event_generate」を運用して実現します。
+
